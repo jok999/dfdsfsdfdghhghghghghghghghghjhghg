@@ -509,7 +509,7 @@ msg.delete();
       .addField('*bc' ,':incoming_envelope: رسالة جماعية الى كل اعضاء السيرفر:incoming_envelope: ')
       .addField('*inv' ,':mailbox_with_mail:يتم ارسال رساله لك في الخاص ويوجد بها رابط البوت:mailbox_with_mail:')
       .addField('*موسيقى' ,'     :musical_note:   للحصول على قائمة  الموسيقى :musical_note:  ')
-      .addField('welcome' ,':wave:حتى البوت يرحب في الاشخاص يجيب عليك عمل شات باسمwelcome:wave:')
+      .addField('welcome' ,':wave:حتى البوت يرحب في الاشخاص يجيب عليك عمل شات باسم『welcome』:wave:')
       .setColor('RANDOM')
       .setTitle('═════ஜ۩۞۩ஜ══════════ஜ۩۞۩ஜ═════')
       message.channel.send(embed)

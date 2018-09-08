@@ -35,7 +35,7 @@ const fs = require('fs');
 
 const Client = new Discord.Client({disableEveryone: true});
 
-const prefix = "%";
+const prefix = "*";
 /////////////////////////
 ////////////////////////
 
@@ -304,6 +304,147 @@ function play(guild, song) {
 
 
 
+        client.on('message', message => {
+          var prefix = '*';
+          if (message.content.startsWith(prefix + 'موسيقى')) {
+      let embed = new Discord.RichEmbed()
+      .addField('*play' ,'   :headphones:تشغيل الاغنيه باسم او برابط:headphones: ')
+      .addField('*stop' ,'    :mute: ايقاف الاغنيه:mute:   ')
+      .addField('*skip' ,'     :play_pause: تخطي الاغنيه :play_pause:  ')
+      .addField('*pause' ,'    :clock1: ايقاف الاغنيه مؤقت:clock1:  ')
+      .addField('*resume' ,'    :musical_note: تكملةالاغنيه:musical_note:  ')
+      .addField('*queue' ,'    :pencil: اظهار قائمة التشغيل :pencil:   ')
+      .addField('*np' ,'    :page_facing_up: اظهار الاغنية اللي انت مشغلها حاليا:page_facing_up:  ')
+      .setColor('RANDOM')
+      .setTitle('═════ஜ۩۞۩ஜ══════════ஜ۩۞۩ஜ═════')
+      message.channel.send(embed)
+      }
+  });
+
+
+
+
+
+
+
+
+
+
+
+
+
+  client.on('guildMemberAdd', member => {
+        let channel = member.guild.channels.find('name', ':cherry_blossom:『welcome』:cherry_blossom:');
+        let memberavatar = member.user.avatarURL
+          if (!channel) return;
+        let embed = new Discord.RichEmbed()
+            .setColor('RANDOM')
+            .setThumbnail(memberavatar)
+            .addField('🎽 | name :  ',`${member}`)
+            .addField('📢 | نورت السيرفر يا قلبي' , `Welcome to the server, ${member}`)
+            .addField('🆔 | user :', "**[" + `${member.id}` + "]**" )
+                    .addField('➡| انت العضو رقم',`${member.guild.memberCount}`)
+                   
+                      .addField("Name:",`<@` + `${member.id}` + `>`, true)
+                         
+                                         .addField(' الـسيرفر', `${member.guild.name}`,true)
+                                           
+         .setFooter(`${member.guild.name}`)
+            .setTimestamp()
+       
+          channel.sendEmbed(embed);
+        });
+
+
+
+
+
+
+
+
+
+
+
+ const devs = ['427054141492297728' , '292042690470739968' , '' , ''];
+const adminprefix = "*";
+client.on('message', message => {
+    var argresult = message.content.split(` `).slice(1).join(' ');
+      if (!devs.includes(message.author.id)) return;
+      
+  if (message.content.startsWith(adminprefix + 'ply')) {
+    client.user.setGame(argresult);
+      message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
+  } else 
+  if (message.content.startsWith(adminprefix + 'wt')) {
+  client.user.setActivity(argresult, {type:'WATCHING'});
+      message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
+  } else 
+  if (message.content.startsWith(adminprefix + 'ls')) {
+  client.user.setActivity(argresult , {type:'LISTENING'});
+      message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
+  } else 
+  if (message.content.startsWith(adminprefix + 'st')) {
+    client.user.setGame(argresult, "https://www.twitch.tv/idk");
+      message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
+  }
+  });
+
+
+
+
+
+
+
+
+
+client.on('message', message => {
+   if(!message.channel.guild) return;
+  var prefix = "*"
+if(message.content.startsWith(prefix + 'bc')) {
+if(!message.channel.guild) return message.channel.send('**هذا الأمر فقط للسيرفرات**').then(m => m.delete(5000));
+if(!message.member.hasPermission('ADMINISTRATOR')) return      message.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );
+let args = message.content.split(" ").join(" ").slice(2 + prefix.length);
+let BcList = new Discord.RichEmbed()
+.setThumbnail(message.author.avatarURL)
+.setAuthor(`محتوى الرساله ${args}`)
+.setDescription(`برودكاست بـ امبد 📝\nبرودكاست بدون امبد✏ \nلديك دقيقه للأختيار قبل الغاء البرودكاست\nيمكنك اضافة اسم السيرفر في البرودكاست عن طريق كتابة <server>\nيمكنك اضافة اسم المرسل في البرودكاست عن طريق كتاية <by>\nيمكنك منشنة العضو في الرساله عن طريق كتابة <user>`)
+if (!args) return message.reply('**يجب عليك كتابة كلمة او جملة لإرسال البرودكاست**');message.channel.send(BcList).then(msg => {
+msg.react('📝')
+.then(() => msg.react('✏'))
+.then(() =>msg.react('📝'))
+ 
+let EmbedBcFilter = (reaction, user) => reaction.emoji.name === '📝' && user.id === message.author.id;
+let NormalBcFilter = (reaction, user) => reaction.emoji.name === '✏' && user.id === message.author.id;
+ 
+let EmbedBc = msg.createReactionCollector(EmbedBcFilter, { time: 60000 });
+let NormalBc = msg.createReactionCollector(NormalBcFilter, { time: 60000 });
+ 
+ 
+EmbedBc.on("collect", r => {
+ 
+message.channel.send(`:ballot_box_with_check: تم ارسال الرساله بنجاح`).then(m => m.delete(5000));
+message.guild.members.forEach(m => {
+let EmbedRep = args.replace('<server>' ,message.guild.name).replace('<user>', m).replace('<by>', `${message.author.username}#${message.author.discriminator}`)
+var bc = new
+Discord.RichEmbed()
+.setColor('RANDOM')
+.setDescription(EmbedRep)
+.setThumbnail(message.author.avatarURL)
+m.send({ embed: bc })
+msg.delete();
+})
+})
+NormalBc.on("collect", r => {
+  message.channel.send(`:ballot_box_with_check: تم ارسال الرساله بنجاح`).then(m => m.delete(5000));
+message.guild.members.forEach(m => {
+let NormalRep = args.replace('<server>' ,message.guild.name).replace('<user>', m).replace('<by>', `${message.author.username}#${message.author.discriminator}`)
+m.send(NormalRep);
+msg.delete();
+})
+})
+})
+}
+});
 
 
 

@@ -315,6 +315,7 @@ function play(guild, song) {
       .addField('*resume' ,'    :musical_note: تكملةالاغنيه:musical_note:  ')
       .addField('*queue' ,'    :pencil: اظهار قائمة التشغيل :pencil:   ')
       .addField('*np' ,'    :page_facing_up: اظهار الاغنية اللي انت مشغلها حاليا:page_facing_up:  ')
+       .addField('*vol' ,'   :loud_sound: :sound:  زيادة الصوت ونقص الصوت :loud_sound: :sound: ')
       .setColor('RANDOM')
       .setTitle('═════ஜ۩۞۩ஜ══════════ஜ۩۞۩ஜ═════')
       message.channel.send(embed)
@@ -337,7 +338,7 @@ function play(guild, song) {
 
         client.on('message', message => {
           var prefix = '*';
-          if (message.content.startsWith(prefix + 'music ')) {
+          if (message.content.startsWith(prefix + 'music')) {
       let embed = new Discord.RichEmbed()
       .addField('*play' ,'   :headphones:تشغيل الاغنيه باسم او برابط:headphones: ')
       .addField('*stop' ,'    :mute: ايقاف الاغنيه:mute:   ')
@@ -346,6 +347,7 @@ function play(guild, song) {
       .addField('*resume' ,'    :musical_note: تكملةالاغنيه:musical_note:  ')
       .addField('*queue' ,'    :pencil: اظهار قائمة التشغيل :pencil:   ')
       .addField('*np' ,'    :page_facing_up: اظهار الاغنية اللي انت مشغلها حاليا:page_facing_up:  ')
+      .addField('*vol' ,'   :loud_sound: :sound:  زيادة الصوت ونقص الصوت :loud_sound: :sound: ')
       .setColor('RANDOM')
       .setTitle('═════ஜ۩۞۩ஜ══════════ஜ۩۞۩ஜ═════')
       message.channel.send(embed)

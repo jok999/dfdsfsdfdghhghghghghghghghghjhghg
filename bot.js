@@ -337,7 +337,7 @@ function play(guild, song) {
 
         client.on('message', message => {
           var prefix = '*';
-          if (message.content.startsWith(prefix + '*music ')) {
+          if (message.content.startsWith(prefix + 'music ')) {
       let embed = new Discord.RichEmbed()
       .addField('*play' ,'   :headphones:تشغيل الاغنيه باسم او برابط:headphones: ')
       .addField('*stop' ,'    :mute: ايقاف الاغنيه:mute:   ')
@@ -380,7 +380,7 @@ function play(guild, song) {
 
 
   client.on('guildMemberAdd', member => {
-        let channel = member.guild.channels.find('name', ':cherry_blossom:『welcome』:cherry_blossom:');
+        let channel = member.guild.channels.find('name', '『welcome』');
         let memberavatar = member.user.avatarURL
           if (!channel) return;
         let embed = new Discord.RichEmbed()

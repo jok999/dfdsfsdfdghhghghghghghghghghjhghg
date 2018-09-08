@@ -660,7 +660,19 @@ http://cutt.us/algamerzeuon_bot
 
 
 
-
+client.on('message' , async (message) => {
+	var prefix = "*";
+       if(message.content.startsWith(prefix + "clear")) {
+           let args = message.content.split(" ").slice(1);
+		   if(!message.member.hasPermission('MANAGE_MESSAGES')) return    message.channel.send('**لا يوجد لديك صلاحية لمسح الشات**');
+ if (isNaN(args[0])) return message.channel.send('**Please supply a valid amount of messages to purge**');
+  if (args[0] > 100) return message.channel.send('**Please supply a number less than 100**');
+  message.channel.bulkDelete,message.channel.bulkDelete,message.channel.bulkDelete(args[0])
+    .then(messages => message.channel.send(`**Successfully deleted \`${messages.size}/${args[0]}\` messages**`).then(message => message.delete({
+      timeout: 10000
+    }))) 
+}
+});
 
 
 

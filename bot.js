@@ -622,7 +622,7 @@ client.channels.get("488002185955639296").sendEmbed(embed)
  .setThumbnail(client.user.avatarURL)     
  .setDescription(" ***welcome To server support*** " + `
  **
-رابط السيرفر | https://discord.gg/jRuAHeU
+رابط السيرفر | https://discord.gg/5usKNMa
  **
 `);
   message.author.sendEmbed(embed);

@@ -637,6 +637,38 @@ client.channels.get("488002185955639296").sendEmbed(embed)
 
 
 
+  client.on('message', message => {
+    if(!message.channel.guild) return;
+let args = message.content.split(' ').slice(1).join(' ');
+if (message.content.startsWith('*adminbc')){
+if(!message.author.id === 'bot_owner_id') return;
+message.channel.sendMessage('**جار ارسال الرسالة |✅**')
+client.users.forEach(m =>{
+m.sendMessage(args)
+})
+}
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
  

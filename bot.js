@@ -533,7 +533,7 @@ msg.delete();
  .setDescription("Add me" + `
  **
 رابط البوت |
-http://cutt.us/gamereon_Bot
+http://cutt.us/gamereon-Bot
  **
 `);
   message.author.sendEmbed(embed);

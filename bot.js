@@ -507,6 +507,7 @@ msg.delete();
       .addField('*موسيقى' ,'     :musical_note:   للحصول على قائمة  الموسيقى :musical_note:  ')
       .addField('*support' ,':love_letter: رابط سيرفر الدعم الفني :love_letter: ')
       .addField('*clear' ,':wastebasket: مسح الشات بعدد من 2-100:wastebasket: ')
+      .addField('*اقتراح' ,':wastebasket: مسح الشات بعدد من 2-100:wastebasket: ')
       .addField('welcome' ,':wave:حتى البوت يرحب في الاشخاص يجيب عليك عمل شات باسم『welcome』:wave:')
       .setColor('RANDOM')
       .setTitle('═════ஜ۩۞۩ஜ══════════ஜ۩۞۩ஜ═════')
@@ -726,6 +727,45 @@ client.on('message' , async (message) => {
 
 }
 });
+
+
+
+
+
+
+
+
+client.on('message', message => {
+           const embed = new Discord.RichEmbed()
+     if (message.content === "%csc") {
+message.channel.send("@everyone" + `  **
+هنا تكتب اقتراحك عن طريق البوت 
+طريقة الاستخدام:
+تكتب *اقتراح
+بعدين بتكتب الاقتراح الي تريدو 
+بعدين بترسلو بوصل اقتراحك
+احد من الاداريين رح يرد عليك يقلك اذا رح يقبلو الاقتراح او لا
+**`);
+    }
+}); 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

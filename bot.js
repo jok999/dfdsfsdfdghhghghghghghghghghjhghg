@@ -502,6 +502,50 @@ msg.delete();
 
 
 
+        client.on('message', message => {
+          var prefix = '*';
+          if (message.content.startsWith(prefix + 'help')) {
+      let embed = new Discord.RichEmbed()
+      .addField('*bc' ,':incoming_envelope: رسالة جماعية الى كل اعضاء السيرفر:incoming_envelope: ')
+      .addField('*inv' ,':mailbox_with_mail:يتم ارسال رساله لك في الخاص ويوجد بها رابط البوت:mailbox_with_mail:')
+      .addField('*موسيقى' ,'     :musical_note:   للحصول على قائمة  الموسيقى :musical_note:  ')
+      .addField('welcome' ,':wave:حتى البوت يرحب في الاشخاص يجيب عليك عمل شات باسمwelcome:wave:')
+      .setColor('RANDOM')
+      .setTitle('═════ஜ۩۞۩ஜ══════════ஜ۩۞۩ஜ═════')
+      message.channel.send(embed)
+      }
+  });
+
+
+
+
+
+
+
+
+
+
+ client.on('message' , message => {
+
+    if (message.content === "*inv") {
+	    message.reply(`تم ارساله الرابط في الخاص`) 
+        if(!message.channel.guild) return message.reply('**الآمر فقط في السيرفرات**');
+     const embed = new Discord.RichEmbed()
+ .setColor("RANDOM")
+ .setThumbnail(client.user.avatarURL)     
+ .setDescription("Add me" + `
+ **
+رابط البوت |
+http://cutt.us/gamereon_Bot
+ **
+`);
+  message.author.sendEmbed(embed);
+   }
+});
+
+
+
+
 
 
 

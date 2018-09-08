@@ -505,7 +505,7 @@ msg.delete();
       .addField('*bc' ,':incoming_envelope: رسالة جماعية الى كل اعضاء السيرفر:incoming_envelope: ')
       .addField('*inv' ,':mailbox_with_mail:يتم ارسال رساله لك في الخاص ويوجد بها رابط البوت:mailbox_with_mail:')
       .addField('*موسيقى' ,'     :musical_note:   للحصول على قائمة  الموسيقى :musical_note:  ')
-      .addField('*support' ,'رابط سيرفر الدعم الفني ')
+      .addField('*support' ,':love_letter: رابط سيرفر الدعم الفني :love_letter: ')
       .addField('welcome' ,':wave:حتى البوت يرحب في الاشخاص يجيب عليك عمل شات باسم『welcome』:wave:')
       .setColor('RANDOM')
       .setTitle('═════ஜ۩۞۩ஜ══════════ஜ۩۞۩ஜ═════')
@@ -622,7 +622,7 @@ client.channels.get("488002185955639296").sendEmbed(embed)
  .setThumbnail(client.user.avatarURL)     
  .setDescription(" ***welcome To server support*** " + `
  **
-رابط السيرفر | https://discord.gg/QMk6frh
+رابط السيرفر | https://discord.gg/YFwWkG
  **
 `);
   message.author.sendEmbed(embed);

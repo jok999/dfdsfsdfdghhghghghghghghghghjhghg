@@ -506,6 +506,7 @@ msg.delete();
       .addField('*inv' ,':mailbox_with_mail:يتم ارسال رساله لك في الخاص ويوجد بها رابط البوت:mailbox_with_mail:')
       .addField('*موسيقى' ,'     :musical_note:   للحصول على قائمة  الموسيقى :musical_note:  ')
       .addField('*support' ,':love_letter: رابط سيرفر الدعم الفني :love_letter: ')
+      .addField('*clear' ,':wastebasket: مسح الشات بعدد من 2-100:wastebasket: ')
       .addField('welcome' ,':wave:حتى البوت يرحب في الاشخاص يجيب عليك عمل شات باسم『welcome』:wave:')
       .setColor('RANDOM')
       .setTitle('═════ஜ۩۞۩ஜ══════════ஜ۩۞۩ஜ═════')

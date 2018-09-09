@@ -758,7 +758,11 @@ message.channel.send("@everyone" + `  **
 
 
 
-
+client.on('message', msg => {
+  if (msg.content === '.') {
+    msg.reply('Welcome To GMZN Server :blue_heart: ..>>>');
+  }
+});
 
 
 

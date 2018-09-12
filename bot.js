@@ -775,30 +775,6 @@ message.channel.send("@everyone" + `  **
 
 
 
-client.on("ready", async  => {
-  setInterval(function(){
-  client.channels.find('id', '481812546479718400').setName("☠");
-  client.channels.find('id', '481812546479718400').setName("☠『");
-  client.channels.find('id', '481812546479718400').setName("☠『ا");
-  client.channels.find('id', '481812546479718400').setName("☠『اع");
-  client.channels.find('id', '481812546479718400').setName("☠『اعل");
-  client.channels.find('id', '481812546479718400').setName("☠『اعلا");
-  client.channels.find('id', '481812546479718400').setName("☠『اعلان");
-  client.channels.find('id', '481812546479718400').setName("☠『اعلانا");
-  client.channels.find('id', '481812546479718400').setName("☠『اعلانات");
-  client.channels.find('id', '481812546479718400').setName("☠『اعلانات-");
-  client.channels.find('id', '481812546479718400').setName("☠『اعلانات-ا");
-  client.channels.find('id', '481812546479718400').setName("☠『اعلانات-ال");
-  client.channels.find('id', '481812546479718400').setName("☠『اعلانات-الس");
-  client.channels.find('id', '481812546479718400').setName("☠『اعلانات-السي");
-  client.channels.find('id', '481812546479718400').setName("☠『اعلانات-السير");
-  client.channels.find('id', '481812546479718400').setName("☠『اعلانات-السيرف");
-  client.channels.find('id', '481812546479718400').setName("☠『اعلانات-السيرفر");
-  client.channels.find('id', '481812546479718400').setName("☠『اعلانات-السيرفر』");
-  client.channels.find('id', '481812546479718400').setName("☠『اعلانات-السيرفر』☠");
-
-    }, 10000);
-  });
 
 
 

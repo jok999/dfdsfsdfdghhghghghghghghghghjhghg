@@ -136,7 +136,7 @@ client.on('message', message => {
                                                                    ctx.font = 'regular 30px Cairo';
                                                                    ctx.fontSize = '30px';
                                                                    ctx.fillStyle = '#ffffff'
-                                                         ctx.fillText(`${h.presence.game === null ? "لا يلعب" : h.presence.game.name}`,390,390);
+                                                         ctx.fillText(`${h.presence.game === null ? "no game" : h.presence.game.name}`,390,390);
                             
                                ctx.font = '35px Arial';
                                                                    ctx.fontSize = '30px';

@@ -809,15 +809,15 @@ var ment = message.mentions.users.first();
 
 
 
+
 client.on('message', message => {
-	var prefix = "%";
-    if(message.content == ('id')) {    
+    if(message.content == ('-هويتي')) {    
  
              if (message.channel.type === 'dm') return message.reply('This Command Is Not Avaible In Dm\'s :x:');   
             var Canvas = module.require('canvas');
             var jimp = module.require('jimp');
     
-     const w = ['./ID1.png','./DreamsID2.png','./ID3.png','./ID4.png','./ID5.png'];
+     const w = ['./img/ID1.png','./Dreams/img/ID2.png','./img/ID3.png','./img/ID4.png','./img/ID5.png'];
     
              let Image = Canvas.Image,
                  canvas = new Canvas(802, 404),

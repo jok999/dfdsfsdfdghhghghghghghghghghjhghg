@@ -27,7 +27,7 @@ client.on('ready', () => {
 
 
 
-
+var fs = require("fs")
 client.on('message', message => {
     if(message.content == ('-هويتي')) {    
  

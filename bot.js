@@ -12,14 +12,7 @@ client.on('ready', () => {
 
 
 
-const mysql = require("mysql")
-var con = mysql.createConnection({
-  host: "localhost",
-  user: "𝔍𝔒𝔎𝔄ℜ999",
-  password: "1122",
-  database: "eyad"
-});
- 
+const mysql = require("mysql") 
 client.on('message', message => {
   if(message.author.bot) return;
   if(message.channel.type === 'dm') return;

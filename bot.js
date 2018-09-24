@@ -11,7 +11,7 @@ client.on('ready', () => {
 
 
 
-
+var points = require ("points")
 client.on('message', message => {
 if (!points[message.author.id]) points[message.author.id] = {
     points: 0,

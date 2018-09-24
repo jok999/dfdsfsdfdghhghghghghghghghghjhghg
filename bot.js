@@ -14,7 +14,10 @@ client.on('ready', () => {
 
 const mysql = require("mysql")
 var con = mysql.createConnection({
-
+  host: "localhost",
+  user: "اسم حسابك",
+  password: "",
+  database: "eyad"
 });
  
 client.on('message', message => {
@@ -28,7 +31,6 @@ client.on('message', message => {
           con.query(`UPDATE top SET txp = ${parseInt(rows[0].txp)+1} WHERE id = '${message.author.id}' AND gid = '${message.guild.id}'`)
       }
     })
-    var prefix = "%"
 if(message.content.toLowerCase() === prefix + "top") {
   con.query(`SELECT * FROM top WHERE gid = '${message.guild.id}' ORDER BY txp DESC LIMIT 5`, (e, rows) => {
     con.query(`SELECT * FROM top WHERE gid = '${message.guild.id}' ORDER BY vxp DESC LIMIT 5`, (e, rowa) => {

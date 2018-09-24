@@ -8,6 +8,7 @@ client.on('ready', () => {
 
 
 client.on('message', message => {
+	var prefix = "+";
 if (message.content.startsWith(prefix + 'نقاطي')) {
 	if(!message.channel.guild) return
 	let userData = points[message.author.id];

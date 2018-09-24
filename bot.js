@@ -6,7 +6,7 @@ client.on('ready', () => {
 });
 
 
-
+var points = require ("points")
 client.on('message', message => {
 	var prefix = "+";
 if (message.content.startsWith(prefix + 'نقاطي')) {

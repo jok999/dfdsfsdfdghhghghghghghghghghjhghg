@@ -12,141 +12,38 @@ client.on('ready', () => {
 
 
 
-const mysql = require("mysql") 
-const mysql = require("mysql")
-var con = mysql.createConnection({
-  host: "localhost",
-  database: "eyad"
-});
-
-
-
-
-
-
 client.on('message', message => {
-  if(message.author.bot) return;
-  if(message.channel.type === 'dm') return;
-    con.query(`SELECT * FROM top WHERE gid = '${message.guild.id}' AND id = '${message.author.id}'`, (e, rows) => {
-      if(e) throw e;
-      if(!rows || !rows[0] || !rows.lenght < 0) {
-        con.query(`INSERT INTO top (id, gid, txp) VALUES ('${message.author.id}', '${message.guild.id}', 1)`);
-      } else {
-          con.query(`UPDATE top SET txp = ${parseInt(rows[0].txp)+1} WHERE id = '${message.author.id}' AND gid = '${message.guild.id}'`)
-      }
+if (!points[message.author.id]) points[message.author.id] = {
+    points: 0,
+  };
+  var prefix = "^";
+if (message.content.startsWith(prefix + 'فكك')) {
+    if(!message.channel.guild) return
+
+const type = require('./fkk/fkkk.json');
+const item = type[Math.floor(Math.random() * type.length)];
+const filter = response => {
+    return item.answers.some(answer => answer.toLowerCase() === response.content.toLowerCase());
+};
+message.channel.send('**لديك 15 ثانية لتجيب**').then(msg => {
+
+            
+msg.channel.send(`${item.type}`).then(() => {
+        message.channel.awaitMessages(filter, { maxMatches: 1, time: 15000, errors: ['time'] })
+        .then((collected) => {
+        message.channel.send(`${collected.first().author} ✅ **مبروك لقد كسبت نقطه
+لمعرفة نقطاك الرجاء كتابة .نقاطي**`);
+        console.log(`[Typing] ${collected.first().author} typed the word.`);
+            let userData = points[message.author.id];
+            userData.points++;
+          })
+          .catch(collected => {
+            message.channel.send(`:x: **خطأ حاول مرة اخرى**`);
+            console.log('[Typing] Error: No one type the word.');
+          })
+        })
     })
-      var prefix = "%"
-if(message.content.toLowerCase() === prefix + "top") {
-  con.query(`SELECT * FROM top WHERE gid = '${message.guild.id}' ORDER BY txp DESC LIMIT 5`, (e, rows) => {
-    con.query(`SELECT * FROM top WHERE gid = '${message.guild.id}' ORDER BY vxp DESC LIMIT 5`, (e, rowa) => {
-  var text = '';
-  var voice = '';
-if(rows.lenght >= 5) {
-    for (var i = 0; i < 4; i++) {
- 
-    text += `#${parseInt(i)+1} <@${rows[i].id}> XP: \`${rows[i].txp}\`\n`
- 
 }
-for (var i2 = 0; i2 < 4; i2++) {
-  voice += `#${parseInt(i2)+1} <@${rowa[i2].id}> XP: \`${rowa[i2].vxp}\`\n`
-}
-const embed1 = new Discord.RichEmbed()
-.setAuthor("📋 Guild Leaderboard!", message.guild.iconURL)
-.setColor(hlc.jsmc)
-.addField(`**TOP 5 TEXT :speech_balloon:**`, `**${text}  \n For More: \`${prefix}top text\`**`, true)
-.addField("TOP 5 VOICE :microphone2:", `**${voice} \n For More: \`${prefix}top voice\`**`, true)
-.setFooter(message.author.tag, message.author.displayAvatarURL)
- 
-message.channel.send(embed1)
-} else {
-  for (var row in rows) {
- 
-    text += `#${parseInt(row)+1} <@${rows[row].id}> XP: \`${rows[row].txp}\`\n`
-}
-for (var rowq in rowa) {
-  voice += `#${parseInt(rowq)+1} <@${rowa[rowq].id}> XP: \`${rowa[rowq].vxp}\`\n`
-}
-const embed2 = new Discord.RichEmbed()
- 
-.setAuthor("📋 Guild Leaderboard!", message.guild.iconURL)
-.setColor(hlc.jsmc)
-.addField(`**TOP 5 TEXT :speech_balloon:**`, `**${text}  \n For More: \`${prefix}top text\`**`, true)
-.addField("**TOP 5 VOICE **:microphone2:", `**${voice} \n For More: \`${prefix}top voice\`**`, true)
-.setFooter(message.author.tag, message.author.displayAvatarURL)
- 
-message.channel.send(embed2)
-  }
-})
-  })
-}
-    if(message.content.toLowerCase() === (prefix + 'top text')) {
-      con.query(`SELECT * FROM top WHERE gid = '${message.guild.id}' ORDER BY txp DESC LIMIT 10`, (e, rows) => {
-        var text = '';
-        var voice = '';
-       {
-        for (var row in rows) {
- 
-          text += `#${parseInt(row)+1} <@${rows[row].id}> XP: \`${rows[row].txp}\`\n`
-      }
- 
-      const embed2 = new Discord.RichEmbed()
- 
-      .setAuthor("📋 Guild Leaderboard!", message.guild.iconURL)
-      .setColor(hlc.jsmc)
-      .addField(`**TEXT LEADERBOARD :speech_balloon:**`, `**${text}**`, true)
- 
-      .setFooter(message.author.tag, message.author.displayAvatarURL)
- 
-      message.channel.send(embed2)
-        }
-      })
-    }
-    if(message.content.toLowerCase() === (prefix + 'top voice')) {
-      con.query(`SELECT * FROM top WHERE gid = '${message.guild.id}' ORDER BY vxp DESC LIMIT 10`, (e, rows) => {
-        var text = '';
-        var voice = '';
-       {
-        for (var row in rows) {
- 
-          text += `#${parseInt(row)+1} <@${rows[row].id}> XP: \`${rows[row].vxp}\`\n`
-      }
- 
-      const embed2 = new Discord.RichEmbed()
- 
-      .setAuthor("📋 Guild Leaderboard!", message.guild.iconURL)
-      .setColor(hlc.jsmc)
-      .addField(`**VOICE LEADERBOARD :microphone2:**`, `**${text}**`, true)
- 
-      .setFooter(message.author.tag, message.author.displayAvatarURL)
- 
-      message.channel.send(embed2)
-        }
-      })
-    }
- 
-})
- 
-client.on('voiceStateUpdate', (oM, nM) => {
- let guild = nM.guild;
- let channel = nM.voiceChannel;
- 
- if(channel || channel === nM.guild.afkChannel) return undefined;
- if(nM.user.bot) return undefined;
- 
-  setInterval(() => {
- 
-    con.query(`SELECT * FROM top WHERE id = '${nM.user.id}' AND gid = '${nM.guild.id}'`, (err, rows) => {
-  if(!rows || !rows[0] || rows.lenght < 0) {
-        con.query(`INSERT INTO top (id, gid, vxp) VALUES ('${nM.user.id}', '${nM.guild.id}', 1)`);
-        console.log('inserted')
-      } else {
-        con.query(`UPDATE top SET vxp = ${parseInt(rows[0].vxp)+1} WHERE id = '${nM.user.id}' AND gid = '${nM.guild.id}'`)
-        console.log('updated')
-      }
-    })
- 
-  }, 60000);
- 
 });
 
 

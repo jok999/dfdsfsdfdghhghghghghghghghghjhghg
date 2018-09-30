@@ -364,7 +364,7 @@ client.on('message' , async (message) => {
 
 
 
-
+const sql = require('sql');
 client.on('message', message => {
 sql.open("./score.sqlite");
   sql.get(`SELECT * FROM scores WHERE userId ="${message.author.id}"`).then(row => {

@@ -271,7 +271,7 @@ var adkar = [
  .setThumbnail(client.user.avatarURL)     
  .setDescription("القران الكريم" + `
  **
-           رابط البوت | 
+      رابط بوت القران الكريم 
     http://cutt.us/quran_alkrem
     لا تبخل علينا بنشر البوت لكسب الاجر عند الله
  **

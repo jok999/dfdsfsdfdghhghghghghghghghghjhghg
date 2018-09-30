@@ -57,6 +57,7 @@
     "random-number": "^0.0.9",
     "short-number": "^1.0.6",
     "member": "^0.0.2",
-    "yuki": "^1.0.2"
+    "yuki": "^1.0.2",
+    "sql": "^0.78.0"
   }
 }

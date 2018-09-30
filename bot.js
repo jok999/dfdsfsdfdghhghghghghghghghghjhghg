@@ -275,6 +275,78 @@ var adkar = [
 
 
 
+ client.on('message' , message => {
+
+    if (message.content === "دعوه") {
+	    message.reply(`تم ارساله الرابط في الخاص`) 
+        if(!message.channel.guild) return message.reply('**الآمر فقط في السيرفرات**');
+     const embed = new Discord.RichEmbed()
+ .setColor("RANDOM")
+ .setThumbnail(client.user.avatarURL)     
+ .setDescription("القران الكريم" + `
+ **
+           رابط البوت | 
+    http://cutt.us/quran_alkrem
+    لا تبخل علينا بنشر البوت لكسب الاجر عند الله
+ **
+`);
+  message.author.sendEmbed(embed);
+   }
+});
+
+
+
+
+
+
+
+
+ const devs = ['292042690470739968' , '' , '' , ''];
+const adminprefix = "%";
+client.on('message', message => {
+    var argresult = message.content.split(` `).slice(1).join(' ');
+      if (!devs.includes(message.author.id)) return;
+      
+  if (message.content.startsWith(adminprefix + 't')) {
+    client.user.setGame(argresult);
+      message.channel.sendMessage(`**:white_check_mark:   ${argresult}**`)
+
+  }
+  });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

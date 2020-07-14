@@ -396,4 +396,4 @@ client.on('message' , async (message) => {
  
   
   
-client.login('NDQwNjU5NDI4MDEwODg1MTUx.Xw4A3w.GX8pedIzTU6BnVSAije6lTrGnGo');
+client.login('NDQwNjU5NDI4MDEwODg1MTUx.Xw4BoQ.zFyc9PogNRUJArc5PgqP3QTrmNQ');
